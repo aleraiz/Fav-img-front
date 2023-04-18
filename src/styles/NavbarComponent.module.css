@@ -1,0 +1,22 @@
+.navbar {
+  background-color: white;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar > div {
+  display: flex;
+}
+
+.link {
+  display: block;
+  padding: 20px 15px;
+}
+
+.link:hover {
+  background-color: aquamarine;
+  color: white;
+}
