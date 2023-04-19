@@ -1,6 +1,7 @@
 import Head from "next/head";
-import style from "../src/styles/Layout.module.css";
+import style from "../styles/Layout.module.css";
 import NavbarComponent from "./NavbarComponent";
+import { Container } from "react-bootstrap";
 
 export default function Layout({ children, title }) {
   return (
@@ -11,8 +12,12 @@ export default function Layout({ children, title }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavbarComponent></NavbarComponent>
-      <main className={style.container}>{children}</main>
-      <footer>Footer</footer>
+      <main className={style.container}>
+        <Container>{children}</Container>
+      </main>
+      <footer>
+        <Container>Footer</Container>
+      </footer>
     </div>
   );
 }

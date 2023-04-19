@@ -1,4 +1,4 @@
-import Layout from "../../../components/Layout";
+import Layout from "../../components/Layout";
 import Image from "next/image";
 
 import { getImages } from "@/services/imageService";
@@ -6,7 +6,7 @@ import { getImages } from "@/services/imageService";
 export default function user({ images }) {
   console.log(images);
   return (
-    <Layout>
+    <Layout title={"User"}>
       <h1>User menu</h1>
       {images &&
         images.map((image) => (
