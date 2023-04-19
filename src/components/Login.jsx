@@ -3,9 +3,9 @@ import styles from "../styles/Login.module.css";
 export default function Login() {
   return (
     <div className={styles.AuthFormContainer}>
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
+      <form className={styles.AuthForm}>
+        <div className={styles.AuthFormContent}>
+          <h3 className={styles.AuthFormTitle}>Sign In</h3>
           <div className="form-group mt-3">
             <label className="login-form-label">Email address</label>
             <input
@@ -15,7 +15,7 @@ export default function Login() {
             />
           </div>
           <div className="form-group mt-3">
-            <label className="login-form-label">Password</label>
+            <label className={styles.loginFormLabel}>Password</label>
             <input
               type="password"
               className="form-control mt-1"
