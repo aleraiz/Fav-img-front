@@ -6,6 +6,7 @@
 
 // navegación entre rutas de la aplicacion:
 //Usamos el componente <Link href="/contacto">contacto</Link> en href va hacia donde queremos navegar
+// Ya no se necesita agregar un <a></a> dentro del link (en la mayoria de los tutoriales esta de esa manera pero se cambio la forma)
 
 //Si creamos una carpeta "productos" dentro de pages y creamos dentro un archivo "index.jsx"
 // se crea la ruta localhost:3000/productos.

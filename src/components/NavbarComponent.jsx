@@ -8,7 +8,9 @@ export default function NavbarComponent() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Fav-Image</Navbar.Brand>
+        <Navbar.Brand>
+          <Link href="/">Fav-Image</Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
