@@ -1,6 +1,7 @@
 import styles from "../styles/Login.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Login() {
   const router = useRouter();
@@ -83,7 +84,7 @@ export default function Login() {
             </button>
           </div>
           <p className="forgot-password text-right mt-2">
-            Not registered? <a href="#">Click here</a>
+            Not registered? <Link href="/register">Click here</Link>
           </p>
         </div>
       </form>
