@@ -1,5 +1,6 @@
 import styles from "../styles/Login.module.css";
 import Layout from "@/components/Layout";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Register() {
@@ -13,18 +14,31 @@ export default function Register() {
     setData(newData);
   };
 
+  const checkPasswords = () => {
+    if (data.password !== data.ConfirmPassword) {
+      setError("passwords do not match");
+    } else {
+      setError(null);
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    checkPasswords();
+    console.log(data);
   };
 
   return (
     <Layout>
       <div className={styles.AuthFormContainer}>
-        <form className={styles.AuthForm}>
+        <form className={styles.AuthForm} onSubmit={handleSubmit}>
           <div className={styles.AuthFormContent}>
             <h3 className={styles.AuthFormTitle}>Sign Up</h3>
             <div className="text-center">
-              Already registered? <span className="link-primary">Sign In</span>
+              Already registered?{" "}
+              <span className="link-primary">
+                <Link>Sign In</Link>
+              </span>
             </div>
             <div className="form-group mt-3">
               <label>Username</label>
@@ -70,6 +84,12 @@ export default function Register() {
                 onChange={handleInputChange}
               />
             </div>
+            {error ? (
+              <div className="d-flex  align-items-center">
+                <p className="mb-0 mt-3 text-danger">{error}</p>
+              </div>
+            ) : null}
+
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
                 Submit
