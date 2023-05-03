@@ -37,7 +37,7 @@ export default function Register() {
             <div className="text-center">
               Already registered?{" "}
               <span className="link-primary">
-                <Link>Sign In</Link>
+                <Link href={"/"}>Sign In</Link>
               </span>
             </div>
             <div className="form-group mt-3">

@@ -29,8 +29,9 @@
 // Si dentro de la carpeta productos,tenemos una page x ejemplo camisa.jsx y una ruta dinamica es localhost:3000/productos/camisa se va a renderizar la page que tenemos en la carpeta
 
 // navegación entre rutas de la aplicacion:
-//Usamos el componente <Link href="/contacto">contacto</Link> en href va hacia donde queremos navegar
+//Usamos el componente <Link href="/contacto">contacto</Link> en href va hacia donde queremos navegar (importar link component => import Link from 'next/link')
 // Ya no se necesita agregar un <a></a> dentro del link (en la mayoria de los tutoriales esta de esa manera pero se cambio la forma)
+
 // ESTILOS CSS
 // Si queremos darle estilos a elementos generales para toda la aplicación, (por ejemplo darle estilos a una etiqueta h1) debemos hacerlo en global.css
 
