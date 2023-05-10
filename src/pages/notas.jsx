@@ -91,6 +91,11 @@
 //     // Despues este users lo recorremos con un map y vamos mostrando cada uno como siempre
 // }
 
+// GetStaticProps se ejecuta solo del lado del servidor y esta es la razon por la cual cuando hacemos el console.log lo vemos en la terminal.
+//La funcion nunca se va a ejecutar del lado del cliente. Esto quiere decir que el codigo que se escriba en la funcion nunca se va a incluir en el jS que se envia al navegador
+
+// getStaticProps solo se puede usar en un page component (dentro del pages folder), no puede ejecutarse en un component comun(carpeta components).
+
 // ESTILOS CSS
 // Si queremos darle estilos a elementos generales para toda la aplicación, (por ejemplo darle estilos a una etiqueta h1) debemos hacerlo en global.css
 
