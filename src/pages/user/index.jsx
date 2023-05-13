@@ -12,48 +12,23 @@ export default function user({ images }) {
       <main>
         <h2>Mis imágenes</h2>
         <div className={styles.imageGrid}>
-          <div className={styles.imageItem}>
-            {images &&
-              images.map((image) => (
-                <div key={image._id} className={styles.imageItem}>
-                  <Image
-                    src={image.srcImage}
-                    width={200}
-                    height={200}
-                    alt={image.title}
-                    className={styles.image}
-                  />
-                  <h3>{image.title}</h3>
+          {images &&
+            images.map((image) => (
+              <div key={image._id} className={styles.imageItem}>
+                <Image
+                  src={image.srcImage}
+                  width={300}
+                  height={300}
+                  alt={image.title}
+                  className={styles.image}
+                />
+                <h3>{image.title}</h3>
+                <div className={styles.imageItemButtons}>
+                  <button>Editar</button>
                   <button>Eliminar</button>
                 </div>
-              ))}
-            {/* <Image
-              src={
-                "https://images.pexels.com/photos/4549410/pexels-photo-4549410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              }
-              width={200}
-              height={200}
-              alt={"imagen de prueba"}
-            />
-            <h3>Título de la imagen</h3>
-            <p>Descripción de la imagen</p>
-            <button>Eliminar</button>
-          </div>
-          <div className={styles.imageItem}>
-            <Image
-              src={
-                "https://images.pexels.com/photos/4549410/pexels-photo-4549410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              }
-              width={200}
-              height={200}
-              alt={"imagen de prueba"}
-            />
-            <h3>Título de la imagen</h3>
-            <p>Descripción de la imagen</p>
-            <button>Eliminar</button>
-          </div> */}
-            {/* Aquí irían más imágenes */}
-          </div>
+              </div>
+            ))}
         </div>
       </main>
     </Layout>
