@@ -2,30 +2,65 @@ import styles from "../styles/Login.module.css";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Register() {
+  const router = useRouter();
   const [error, setError] = useState(null);
+  const [successMsg, setSuccesMsg] = useState(null);
   const [data, setData] = useState({});
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
     let newData = { ...data, [name]: value };
-    console.log(newData);
     setData(newData);
   };
 
   const checkPasswords = () => {
     if (data.password !== data.ConfirmPassword) {
       setError("passwords do not match");
+      return false;
     } else {
       setError(null);
+      return true;
+    }
+  };
+
+  const signUpUser = async () => {
+    const baseUrl = "http://localhost:3001/signup";
+    try {
+      const fetchResult = await fetch(baseUrl, {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      // ver como manejar los errores segun el estado recibido.
+      const result = await fetchResult.json();
+      const resultStatus = await fetchResult.status;
+      console.log(result);
+      console.log(resultStatus);
+
+      if (resultStatus == 409) {
+        setError(result.error);
+      } else if (resultStatus == 201) {
+        setSuccesMsg(result.message);
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    checkPasswords();
-    console.log(data);
+    console.log(checkPasswords());
+    if (checkPasswords()) {
+      signUpUser();
+    }
   };
 
   return (
@@ -87,6 +122,11 @@ export default function Register() {
             {error ? (
               <div className="d-flex  align-items-center">
                 <p className="mb-0 mt-3 text-danger">{error}</p>
+              </div>
+            ) : null}
+            {successMsg ? (
+              <div className="d-flex  align-items-center">
+                <p className="mb-0 mt-3 text-success fw-bolder">{successMsg}</p>
               </div>
             ) : null}
 
